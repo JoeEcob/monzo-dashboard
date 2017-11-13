@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 
-let i = 0;
+let i = 0
 const RenderMerchant = (merchant) => {
   const span = <span key={"merchant-span" + ++i}
     className="fa fa-fw fa-credit-card text-secondary">&nbsp;</span>

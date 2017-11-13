@@ -28,7 +28,7 @@ export const receiveAccounts = json => ({
 })
 
 const fetchAccounts = accessToken => dispatch => {
-  dispatch(requestAccounts)
+  dispatch(requestAccounts(accessToken))
 
   const api = new MonzoApi()
   api.accessToken = accessToken
@@ -49,9 +49,8 @@ export const fetchAccountsIfNeeded = accessToken => (dispatch, getState) => {
 export const REQUEST_TRANSACTIONS = 'REQUEST_TRANSACTIONS'
 export const RECEIVE_TRANSACTIONS = 'RECEIVE_TRANSACTIONS'
 
-export const requestTransactions = (accessToken, accountId) => ({
+export const requestTransactions = accountId => ({
   type: REQUEST_TRANSACTIONS,
-  accessToken,
   accountId
 })
 
@@ -63,7 +62,7 @@ export const receiveTransactions = (accountId, json) => ({
 })
 
 const fetchTransactions = (accessToken, accountId) => dispatch => {
-  dispatch(requestTransactions)
+  dispatch(requestTransactions(accountId))
 
   const api = new MonzoApi()
   api.accessToken = accessToken

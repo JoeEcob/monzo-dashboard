@@ -3,12 +3,14 @@ import TransactionList from '../components/TransactionList'
 
 const mapStateToProps = state => {
   const { transactionsByAccountId, selectedAccount } = state
-  const { items: transactions } = transactionsByAccountId[selectedAccount] || {
-    items: []
-  }
+  const {
+    items: transactions,
+    isFetching
+  } = transactionsByAccountId[selectedAccount] || { isFetching: false, items: [] }
 
   return {
-    transactions
+    transactions,
+    isFetching
   }
 }
 

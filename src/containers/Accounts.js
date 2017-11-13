@@ -3,7 +3,8 @@ import { selectAccount, fetchTransactionsIfNeeded } from '../actions'
 import AccountList from '../components/AccountList'
 
 const mapStateToProps = state => ({
-  accounts: state.accounts.items || { items: [] }
+  accounts: state.accounts.items || { items: [] },
+  isFetching: state.accounts.isFetching
 })
 
 const mapDispatchToProps = dispatch => ({
