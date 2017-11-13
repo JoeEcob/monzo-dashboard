@@ -6,14 +6,12 @@ const mapStateToProps = state => ({
   accounts: state.accounts.items || { items: [] }
 })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onClick: accountId => {
-      dispatch(selectAccount(accountId))
-      dispatch(fetchTransactionsIfNeeded(accountId))
-    } 
+const mapDispatchToProps = dispatch => ({
+  onClick: accountId => {
+    dispatch(selectAccount(accountId))
+    dispatch(fetchTransactionsIfNeeded(accountId))
   }
-}
+})
 
 const Accounts = connect(mapStateToProps, mapDispatchToProps)(AccountList)
 
