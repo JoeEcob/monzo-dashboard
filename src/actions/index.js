@@ -68,7 +68,7 @@ const fetchTransactions = (accessToken, accountId) => dispatch => {
   const api = new MonzoApi()
   api.accessToken = accessToken
 
-  return api.transactions(accountId)
+  return api.transactions(accountId, true)
     .then(json => dispatch(receiveTransactions(accountId, json)))
 }
 

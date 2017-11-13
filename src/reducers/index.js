@@ -59,7 +59,7 @@ const transactions = (state = {
       return {
         ...state,
         isFetching: false,
-        items: action.transactions,
+        items: action.transactions.reverse(),
         lastUpdated: action.receivedAt
       }
     default:

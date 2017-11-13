@@ -6,10 +6,10 @@ const AccountList = ({ accounts, onClick }) => (
     <h2 className="title">Accounts</h2>
     {accounts.length
       ? accounts.map(account =>
-        <button className="button" key={account.id}
+        [<button className="button" key={account.id}
           onClick={() => onClick(account.id)}>
             {account.type}
-        </button>)
+        </button>, ' '])
       : <p>Nothing to show!</p>
     }
   </section>
