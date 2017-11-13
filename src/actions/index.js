@@ -41,7 +41,7 @@ export const fetchAccountsIfNeeded = accessToken => (dispatch, getState) => {
   var state = getState()
 
   // TODO - check for different access token
-  if (!state.accounts.items.length) {
+  if (!state.accounts.items.length && !state.accounts.isFetching) {
     return dispatch(fetchAccounts(accessToken))
   }
 }
@@ -73,8 +73,9 @@ const fetchTransactions = (accessToken, accountId) => dispatch => {
 
 export const fetchTransactionsIfNeeded = accountId => (dispatch, getState) => {
   const state = getState()
+  const transactions = state.transactionsByAccountId[accountId]
 
-  if (!state.transactionsByAccountId[accountId]) {
+  if (!transactions) {
     return dispatch(fetchTransactions(state.accessToken, accountId))
   }
 }
