@@ -5,8 +5,14 @@ import Transactions from '../containers/Transactions'
 
 const App = () => (
   <div>
-    <AccessToken />
-    <Accounts />
+    <div className="columns">
+      <div className="column">
+        <AccessToken />
+      </div>
+      <div className="column">
+        <Accounts />
+      </div>
+    </div>
     <Transactions />
   </div>
 )
