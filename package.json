@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bulma": "^0.6.1",
+    "font-awesome": "^4.7.0",
     "moment": "^2.19.2",
     "monzo-api": "^1.0.9",
     "react": "^16.1.0",

@@ -6,6 +6,8 @@ import thunk from 'redux-thunk'
 import reducer from './reducers'
 import App from './components/App'
 import registerServiceWorker from './registerServiceWorker'
+import 'bulma/css/bulma.css'
+import 'font-awesome/css/font-awesome.css'
 
 const store = createStore(
   reducer,
