@@ -1,6 +1,6 @@
 # Spendy
 
-[![Build status](https://ci.appveyor.com/api/projects/status/swjehvrdr6lrfgw6?svg=true)](https://ci.appveyor.com/project/JoeEcob/spendy-vtior)
+[![Build status](https://ci.appveyor.com/api/projects/status/0qhy1gp5lymw84h0?svg=true)](https://ci.appveyor.com/project/JoeEcob/spendy-aq7fx)
 
 Web app for visualising your [Monzo](https://monzo.com/) account. [Read more](https://spendy.xyz).
 
