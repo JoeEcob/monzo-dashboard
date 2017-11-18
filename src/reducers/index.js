@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import {
-  SET_TOKEN, SELECT_ACCOUNT,
-  REQUEST_ACCOUNTS, RECEIVE_ACCOUNTS,
-  REQUEST_TRANSACTIONS, RECEIVE_TRANSACTIONS
+  SET_TOKEN, CLEAR_ERROR, SELECT_ACCOUNT,
+  REQUEST_ACCOUNTS, RECEIVE_ACCOUNTS, REJECT_ACCOUNTS,
+  REQUEST_TRANSACTIONS, RECEIVE_TRANSACTIONS, REJECT_TRANSACTIONS
 } from '../actions'
 
 const accessToken = (state = '', action) => {
@@ -40,6 +40,11 @@ const accounts = (state = {
         items: action.accounts,
         lastUpdated: action.receivedAt
       }
+    case REJECT_ACCOUNTS:
+      return {
+        ...state,
+        isFetching: false,
+      }
     default:
       return state
   }
@@ -62,6 +67,11 @@ const transactions = (state = {
         items: action.transactions.reverse(),
         lastUpdated: action.receivedAt
       }
+    case REJECT_TRANSACTIONS:
+      return {
+        ...state,
+        isFetching: false,
+      }
     default:
       return state
   }
@@ -80,11 +90,35 @@ const transactionsByAccountId = (state = { }, action) => {
   }
 }
 
+const error = (state = {
+  type: null,
+  description: null
+}, action) => {
+  switch (action.type) {
+    case REJECT_ACCOUNTS:
+    case REJECT_TRANSACTIONS:
+      return {
+        ...state,
+        type: action.error,
+        description: action.errorDescription
+      }
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        type: null,
+        description: null
+      }
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   accessToken,
   selectedAccount,
   accounts,
-  transactionsByAccountId
+  transactionsByAccountId,
+  error
 })
 
 export default rootReducer

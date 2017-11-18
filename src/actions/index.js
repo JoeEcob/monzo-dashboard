@@ -7,9 +7,16 @@ export const setToken = token => ({
   token
 })
 
+export const CLEAR_ERROR = 'CLEAR_ERROR'
+
+export const clearError = () => ({
+  type: CLEAR_ERROR
+})
+
 export const SELECT_ACCOUNT = 'SELECT_ACCOUNT'
 export const REQUEST_ACCOUNTS = 'REQUEST_ACCOUNTS'
 export const RECEIVE_ACCOUNTS = 'RECEIVE_ACCOUNTS'
+export const REJECT_ACCOUNTS = 'REJECT_ACCOUNTS'
 
 export const selectAccount = accountId => ({
   type: SELECT_ACCOUNT,
@@ -27,6 +34,13 @@ export const receiveAccounts = json => ({
   receivedAt: Date.now()
 })
 
+export const rejectAccounts = error => ({
+  type: REJECT_ACCOUNTS,
+  error: error.response.body.error,
+  errorDescription: error.response.body.error_description,
+  receivedAt: Date.now()
+})
+
 const fetchAccounts = accessToken => dispatch => {
   dispatch(requestAccounts(accessToken))
 
@@ -34,7 +48,10 @@ const fetchAccounts = accessToken => dispatch => {
   api.accessToken = accessToken
 
   return api.accounts()
-    .then(json => dispatch(receiveAccounts(json)))
+    .then(
+      json => dispatch(receiveAccounts(json)),
+      error => dispatch(rejectAccounts(error))
+    )
 }
 
 export const fetchAccountsIfNeeded = accessToken => (dispatch, getState) => {
@@ -48,6 +65,7 @@ export const fetchAccountsIfNeeded = accessToken => (dispatch, getState) => {
 
 export const REQUEST_TRANSACTIONS = 'REQUEST_TRANSACTIONS'
 export const RECEIVE_TRANSACTIONS = 'RECEIVE_TRANSACTIONS'
+export const REJECT_TRANSACTIONS = 'REJECT_TRANSACTIONS'
 
 export const requestTransactions = accountId => ({
   type: REQUEST_TRANSACTIONS,
@@ -61,6 +79,14 @@ export const receiveTransactions = (accountId, json) => ({
   receivedAt: Date.now()
 })
 
+export const rejectTransactions = (accountId, error) => ({
+  type: REJECT_TRANSACTIONS,
+  accountId,
+  error: error.response.body.error,
+  errorDescription: error.response.body.error_description,
+  receivedAt: Date.now()
+})
+
 const fetchTransactions = (accessToken, accountId) => dispatch => {
   dispatch(requestTransactions(accountId))
 
@@ -68,7 +94,10 @@ const fetchTransactions = (accessToken, accountId) => dispatch => {
   api.accessToken = accessToken
 
   return api.transactions(accountId, true)
-    .then(json => dispatch(receiveTransactions(accountId, json)))
+    .then(
+      json => dispatch(receiveTransactions(accountId, json)),
+      error => dispatch(rejectTransactions(accountId, error))
+    )
 }
 
 export const fetchTransactionsIfNeeded = accountId => (dispatch, getState) => {
