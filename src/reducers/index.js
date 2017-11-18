@@ -17,7 +17,7 @@ const accessToken = (state = '', action) => {
 const selectedAccount = (state = '', action) => {
   switch (action.type) {
     case SELECT_ACCOUNT:
-      return action.account
+      return action.accountId
     default:
       return state
   }

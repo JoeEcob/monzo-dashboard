@@ -11,9 +11,9 @@ export const SELECT_ACCOUNT = 'SELECT_ACCOUNT'
 export const REQUEST_ACCOUNTS = 'REQUEST_ACCOUNTS'
 export const RECEIVE_ACCOUNTS = 'RECEIVE_ACCOUNTS'
 
-export const selectAccount = account => ({
+export const selectAccount = accountId => ({
   type: SELECT_ACCOUNT,
-  account
+  accountId
 })
 
 export const requestAccounts = accessToken => ({

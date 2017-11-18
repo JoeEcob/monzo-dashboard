@@ -3,17 +3,15 @@ import Header from './Header'
 import AccessToken from '../containers/AccessToken'
 import Accounts from '../containers/Accounts'
 import Transactions from '../containers/Transactions'
+import Footer from './Footer'
 
 const App = () => (
   <div>
     <Header />
-    <div className="container">
-      <div className="columns">
-        <div className="column"><AccessToken /></div>
-        <div className="column"><Accounts /></div>
-      </div>
-      <Transactions />
-    </div>
+    <AccessToken />
+    <Accounts />
+    <Transactions />
+    <Footer />
   </div>
 )
 

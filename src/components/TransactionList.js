@@ -4,13 +4,15 @@ import TransactionTable from './TransactionTable'
 
 const TransactionList = ({ transactions, isFetching }) => (
   <section className="section transactions">
-    <h2 className="title">Transactions</h2>
-    {!isFetching && transactions.length
-      ? <TransactionTable transactions={transactions} />
-      : (isFetching
-        ? <button className="button is-loading">Loading...</button>
-        : <p>Nothing to show!</p>)
-    }
+    <div className="container">
+      <h2 className="title">Transactions</h2>
+      {!isFetching && transactions.length
+        ? <TransactionTable transactions={transactions} />
+        : (isFetching
+          ? <button className="button is-loading">Loading...</button>
+          : <p>Nothing to show!</p>)
+      }
+    </div>
   </section>
 )
 

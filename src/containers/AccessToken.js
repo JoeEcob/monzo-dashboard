@@ -2,6 +2,11 @@ import { connect } from 'react-redux'
 import { setToken, fetchAccountsIfNeeded } from '../actions'
 import AccessTokenInput from '../components/AccessTokenInput'
 
+const mapStateToProps = state => ({
+  isFetching: state.accounts.isFetching,
+  shouldHide: state.accounts.items.length > 0
+})
+
 const mapDispatchToProps = dispatch => ({
   onClick: (e, input) => {
     e.preventDefault()
@@ -14,6 +19,6 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-const AccessToken = connect(null, mapDispatchToProps)(AccessTokenInput)
+const AccessToken = connect(mapStateToProps, mapDispatchToProps)(AccessTokenInput)
 
 export default AccessToken
