@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { selectAccount, fetchTransactionsIfNeeded } from '../actions'
+import { selectAccount } from '../actions/Accounts'
+import { fetchTransactionsIfNeeded } from '../actions/Transactions'
 import AccountList from '../components/AccountList'
 
 const mapStateToProps = state => ({

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { setToken, fetchAccountsIfNeeded } from '../actions'
+import { setToken } from '../actions/AccessToken'
+import { fetchAccountsIfNeeded } from '../actions/Accounts'
 import AccessTokenInput from '../components/AccessTokenInput'
 
 const mapStateToProps = state => ({
