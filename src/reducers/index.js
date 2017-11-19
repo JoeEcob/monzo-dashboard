@@ -3,7 +3,7 @@ import {
   SET_TOKEN, CLEAR_ERROR, SELECT_ACCOUNT,
   REQUEST_ACCOUNTS, RECEIVE_ACCOUNTS, REJECT_ACCOUNTS,
   REQUEST_TRANSACTIONS, RECEIVE_TRANSACTIONS, REJECT_TRANSACTIONS
-} from '../actions'
+} from '../actions/ActionTypes'
 
 const accessToken = (state = '', action) => {
   switch (action.type) {
