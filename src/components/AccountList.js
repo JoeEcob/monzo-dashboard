@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LoadingIcon from './LoadingIcon'
 
 const AccountList = ({
   accounts,
-  isFetching,
   selectedAccount,
   onClick
 }) => (
@@ -15,17 +13,12 @@ const AccountList = ({
       <h2>Awesome!</h2>
       <p>Which account would you like to view?</p>
       <div>
-      {!isFetching && accounts.length
-        ? accounts.map(account =>
+        {accounts.map(account =>
           [<button key={account.id}
             className={account.id === selectedAccount ? '' : 'button-outline'}
             onClick={() => onClick(account.id)}>
               {account.type}
-          </button>, ' '])
-        : (isFetching
-          ? <LoadingIcon />
-          : '')
-      }
+          </button>, ' '])}
       </div>
     </div>
   </section>
@@ -33,7 +26,6 @@ const AccountList = ({
 
 AccountList.propTypes = {
   accounts: PropTypes.array.isRequired,
-  isFetching: PropTypes.bool.isRequired,
   selectedAccount: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 }
