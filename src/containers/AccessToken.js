@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { clearError } from '../actions/Error'
 import { setToken } from '../actions/AccessToken'
 import { fetchAccountsIfNeeded } from '../actions/Accounts'
 import AccessTokenInput from '../components/AccessTokenInput'
@@ -15,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
       return
     }
 
+    dispatch(clearError())
     dispatch(setToken(input.value))
     dispatch(fetchAccountsIfNeeded(input.value))
   }

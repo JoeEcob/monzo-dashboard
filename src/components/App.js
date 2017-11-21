@@ -8,8 +8,8 @@ import Footer from './Footer'
 
 const App = () => (
   <div>
-    <Header />
     <Error />
+    <Header />
     <AccessToken />
     <Accounts />
     <Transactions />

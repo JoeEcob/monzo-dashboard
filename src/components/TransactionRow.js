@@ -5,43 +5,51 @@ import moment from 'moment'
 let i = 0
 const RenderMerchant = (merchant) => {
   const span = <span key={"merchant-span" + ++i}
-    className="fa fa-fw fa-credit-card text-secondary">&nbsp;</span>
+    className="fa fa-fw fa-credit-card">&nbsp;</span>
 
   if (!merchant) {
     return [span, ' ', 'Monzo']
   }
 
   var img = merchant.logo
-    ? <img key={merchant.id} src={merchant.logo} width="20" alt={merchant.name} />
+    ? <img key={merchant.id} src={merchant.logo} alt={merchant.name} />
     : span
   return [img, ' ', merchant.name]
 }
 
-const IsTopUp = (transaction) => {
-  return transaction.category.toLowerCase() === 'mondo'
-    || transaction.description.toLowerCase() === 'monzo'
+const IsEqual = (a, b) => {
+  return a.trim().toLowerCase() === b.trim().toLowerCase()
+}
+
+const FormatDate = (date, includeTime = false) => {
+  return moment.utc(date).format('DD/MM/YYYY'
+    + (includeTime ? ' HH:mm:ss' : ''))
 }
 
 const TransactionRow = ({ transaction }) => (
   <tr className="transaction" key={transaction.id}>
-    <td title={transaction.created}>
-      {moment.utc(transaction.created).format('DD/MM/YYYY')}
+    <td className="date" title={FormatDate(transaction.created, true)}>
+      {FormatDate(transaction.created)}
     </td>
-    <td>
+    <td className="payee">
       {RenderMerchant(transaction.merchant)}
     </td>
-    <td className="is-capitalized">
-      {transaction.merchant ? transaction.merchant.emoji : ''}
+    <td className="category">
+      {transaction.merchant
+        ? <span className="emoji">{transaction.merchant.emoji}</span>
+        : ''}
       &nbsp;
-      {IsTopUp(transaction) ? transaction.description : transaction.category}
+      {transaction.category}
     </td>
-    <td className="is-capitalized">
-      {IsTopUp(transaction) ? '' : transaction.description.toLowerCase()}
+    <td className="description">
+      {transaction.description.toLowerCase()}
     </td>
-    <td>
-      {transaction.notes}
+    <td className="notes">
+      {IsEqual(transaction.description, transaction.notes)
+        ? ''
+        : transaction.notes}
     </td>
-    <td className="has-text-right">
+  <td className={'amount ' + (transaction.amount >= 0 ? 'positive' : 'negative')}>
       {(transaction.amount / 100).toFixed(2)} {transaction.currency}
     </td>
   </tr>

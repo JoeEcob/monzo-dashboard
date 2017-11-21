@@ -6,9 +6,13 @@ const ErrorMessage = ({ type, description, onClick }) => {
     return null
   }
 
-  return <div className="notification is-danger">
-    <button className="delete" onClick={onClick}></button>
-    <p>{type} - {description}</p>
+  return <div className="error-message container">
+    <div className="row">
+      <div className="column column-50">
+        <i className="close-icon fa fa-times" aria-hidden="true" onClick={onClick}></i>
+        <p>{type} - {description}</p>
+      </div>
+    </div>
   </div>
 }
 

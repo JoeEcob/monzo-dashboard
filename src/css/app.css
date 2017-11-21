@@ -1,0 +1,40 @@
+.close-icon { cursor: pointer; float: right; padding-top: .4rem; }
+
+.header { background-color: #556270; margin-bottom: 2rem; }
+.header h1 { padding-right: .5rem; }
+.header a { color: #fff; }
+.header h4 { color: #ddd; }
+.header h1, .header h4 { display: inline-block; margin-bottom: .5rem; }
+
+section { margin: 7rem 0; }
+
+.access-token form input { border-top-right-radius: 0; border-bottom-right-radius: 0 }
+.access-token form button { border-top-left-radius: 0; border-bottom-left-radius: 0 }
+.access-token .loading-icon { display: inline-block; vertical-align: middle; }
+.access-token form input,
+.access-token form button {
+  display: inline-block;
+  max-width: 300px;
+  vertical-align: top;
+}
+
+.error-message { position: relative; }
+.error-message p { margin: 0; }
+.error-message .column {
+  background-color: #FE4365;
+  color: #fff;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 8rem;
+  z-index: 1;
+}
+
+.transactions .transaction img,
+.transactions .transaction .emoji { max-width: 20px; }
+.transactions .transaction .category,
+.transactions .transaction .description { text-transform: capitalize; }
+.transactions thead th:last-child,
+.transactions tbody td:last-child { text-align: right; white-space: nowrap; }
+
+.footer { text-align: center; margin: 4rem 0; }

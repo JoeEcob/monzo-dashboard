@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import TransactionRow from './TransactionRow'
 
 const TransactionTable = ({ transactions }) => (
-  <table className="table is-fullwidth">
+  <table>
     <thead>
       <tr>
         <th>Date</th>
@@ -11,7 +11,7 @@ const TransactionTable = ({ transactions }) => (
         <th>Category</th>
         <th>Description</th>
         <th>Notes</th>
-        <th className="has-text-right">Amount</th>
+        <th>Amount</th>
       </tr>
     </thead>
     <tbody>
