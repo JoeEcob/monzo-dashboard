@@ -11,8 +11,8 @@ const error = (state = {
     case REJECT_TRANSACTIONS:
       return {
         ...state,
-        type: action.error,
-        description: action.errorDescription
+        type: action.error.code,
+        description: action.error.message
       }
     case CLEAR_ERROR:
       return {

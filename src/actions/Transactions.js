@@ -18,10 +18,9 @@ export const receiveTransactions = (accountId, json) => ({
 
 export const rejectTransactions = (accountId, error) => ({
   type: REJECT_TRANSACTIONS,
+  receivedAt: Date.now(),
   accountId,
-  error: error.response.body.error,
-  errorDescription: error.response.body.error_description,
-  receivedAt: Date.now()
+  error
 })
 
 const fetchTransactions = (accessToken, accountId) => dispatch => {
@@ -33,7 +32,7 @@ const fetchTransactions = (accessToken, accountId) => dispatch => {
   return api.transactions(accountId, true)
     .then(
       json => dispatch(receiveTransactions(accountId, json)),
-      error => dispatch(rejectTransactions(accountId, error))
+      error => dispatch(rejectTransactions(accountId, error.response.body))
     )
 }
 

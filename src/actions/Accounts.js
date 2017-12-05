@@ -23,9 +23,8 @@ export const receiveAccounts = json => ({
 
 export const rejectAccounts = error => ({
   type: REJECT_ACCOUNTS,
-  error: error.response.body.error,
-  errorDescription: error.response.body.error_description,
-  receivedAt: Date.now()
+  receivedAt: Date.now(),
+  error
 })
 
 const fetchAccounts = accessToken => dispatch => {
@@ -37,7 +36,7 @@ const fetchAccounts = accessToken => dispatch => {
   return api.accounts()
     .then(
       json => dispatch(receiveAccounts(json)),
-      error => dispatch(rejectAccounts(error))
+      error => dispatch(rejectAccounts(error.response.body))
     )
 }
 

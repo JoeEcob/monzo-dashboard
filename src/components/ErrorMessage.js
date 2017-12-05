@@ -8,9 +8,9 @@ const ErrorMessage = ({ type, description, onClick }) => {
 
   return <div className="error-message container">
     <div className="row">
-      <div className="column column-50">
+      <div className="column column-50" data-code={type}>
         <i className="close-icon fa fa-times" aria-hidden="true" onClick={onClick}></i>
-        <p>{type} - {description}</p>
+        <p>{description}</p>
       </div>
     </div>
   </div>
