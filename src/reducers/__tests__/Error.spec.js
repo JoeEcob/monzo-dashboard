@@ -15,8 +15,10 @@ describe('Reducers::Error', () => {
     expect(
       reducer(undefined, {
         type: REJECT_ACCOUNTS,
-        error: 'reject_accounts',
-        errorDescription: 'Something went wrong'
+        error: {
+          code: 'reject_accounts',
+          message: 'Something went wrong'
+        }
       })
     ).toEqual({
       type: 'reject_accounts',
@@ -28,8 +30,10 @@ describe('Reducers::Error', () => {
     expect(
       reducer(undefined, {
         type: REJECT_TRANSACTIONS,
-        error: 'reject_transactions',
-        errorDescription: 'Something went wrong'
+        error: {
+          code: 'reject_transactions',
+          message: 'Something went wrong'
+        }
       })
     ).toEqual({
       type: 'reject_transactions',
