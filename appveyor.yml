@@ -21,6 +21,6 @@ deploy:
     secret_access_key:
       secure: 33XHqeAtb+/PH/dSvPZxtxdfy00CfvNcWdM583AvgJhAEXlo1oKzo1fhU6iqv+u1
     region: eu-west-2
-    bucket: v2.spendy.xyz
+    bucket: spendy.xyz
     artifact: build
     unzip: true
