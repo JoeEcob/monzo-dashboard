@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
 import moment from 'moment';
-import _ from 'underscore';
+import _ from 'lodash';
 import Colours from './Colours';
 
 const PrettifyCategory = (str) => (
