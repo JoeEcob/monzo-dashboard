@@ -5,6 +5,9 @@
 .header a { color: #fff; }
 .header h4 { color: #ddd; }
 .header h1, .header h4 { display: inline-block; margin-bottom: .5rem; }
+.header .logout { margin-top: 1rem; }
+.header .logout button { border-color: #fff; color: #fff; }
+.header .logout button:hover { border-color: #ddd; color: #ddd; }
 
 section { margin: 7rem 0; }
 
