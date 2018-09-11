@@ -1,6 +1,6 @@
-import MonzoApi from 'monzo-api'
+import MonzoApi from 'monzo-api';
 
-export const REQUEST_TRANSACTIONS = 'REQUEST_TRANSACTIONS'
+export const REQUEST_TRANSACTIONS = 'REQUEST_TRANSACTIONS';
 export const RECEIVE_TRANSACTIONS = 'RECEIVE_TRANSACTIONS';
 export const REJECT_TRANSACTIONS = 'REJECT_TRANSACTIONS';
 
@@ -32,7 +32,7 @@ const fetchTransactions = (accessToken, accountId) => dispatch => {
   return api.transactions(accountId, true)
     .then(
       json => dispatch(receiveTransactions(accountId, json)),
-      error => dispatch(rejectTransactions(accountId, error.response.body))
+      error => dispatch(rejectTransactions(accountId, error))
     );
 };
 

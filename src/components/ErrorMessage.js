@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ErrorMessage = ({ type, description, onClick }) => {
-  if (!type || !description) {
-    return null
+  if (!description) {
+    return null;
   }
 
   return <div className="error-message container">
@@ -14,12 +14,12 @@ const ErrorMessage = ({ type, description, onClick }) => {
       </div>
     </div>
   </div>
-}
+};
 
 ErrorMessage.propTypes = {
   type: PropTypes.string,
   description: PropTypes.string,
   onClick: PropTypes.func.isRequired
-}
+};
 
-export default ErrorMessage
+export default ErrorMessage;
