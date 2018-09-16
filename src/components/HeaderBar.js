@@ -1,17 +1,21 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Logout from './Logout';
 
 const HeaderBar = ({ hasAccessToken, logoutOnClick }) => (
-  <nav className="header">
+  <header className="header">
     <div className="container">
-      <a href="/" title="Home">
+      <NavLink to="/" title="Home">
         <h1>Spendy</h1>
-        <h4>beta</h4>
-      </a>
+      </NavLink>
       <Logout hasAccessToken={hasAccessToken} onClick={logoutOnClick} />
+      <nav>
+        <NavLink to="/" activeClassName="active">Home</NavLink>
+        <NavLink to="/transactions" activeClassName="active">Transactions</NavLink>
+      </nav>
     </div>
-  </nav>
+  </header>
 );
 
 HeaderBar.propTypes = {

@@ -64,7 +64,7 @@ describe('Actions::Transactions', () => {
       transactionsByAccountId: {
         [accountId]: {
           items: [],
-          isFetching: true,
+          isFetching: false,
           lastUpdated: 1483207199999 // 6 hours and 1 ms before
         }
       }

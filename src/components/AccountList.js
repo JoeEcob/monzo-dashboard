@@ -10,7 +10,6 @@ const AccountList = ({
   ? ''
   : <section className="accounts hero">
     <div className="container">
-      <h2>Awesome!</h2>
       <p>Which account would you like to view?</p>
       <div>
         {accounts.map(account =>

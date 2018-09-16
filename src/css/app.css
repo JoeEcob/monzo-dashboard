@@ -1,15 +1,22 @@
 .close-icon { cursor: pointer; float: right; padding-top: .4rem; }
 
-.header { background-color: #556270; margin-bottom: 2rem; }
-.header h1 { padding-right: .5rem; }
-.header a { color: #fff; }
-.header h4 { color: #ddd; }
-.header h1, .header h4 { display: inline-block; margin-bottom: .5rem; }
-.header .logout { margin-top: 1rem; }
-.header .logout button { border-color: #fff; color: #fff; }
-.header .logout button:hover { border-color: #ddd; color: #ddd; }
+.header { text-align: center; }
+.header h1 { color: #45ADA8; margin: 1rem 0 0; }
+.header a { color: #45ADA8; }
+.header .logout { position: absolute; top: 2rem; right: 2rem;}
+.header nav { margin-top: 2rem; padding: 1rem 0; border: solid 1px #594F4F; border-left: none; border-right: none; }
+.header nav a { padding: 2rem; color: #594F4F; }
+.header nav a:hover { padding: 2rem; color: #32c0b9; }
 
-section { margin: 7rem 0; }
+section { margin: 3rem 0; }
+
+/* Overwrite default pink colour */
+a, a:focus { color: #45ADA8; }
+a:hover { color: #32c0b9; }
+button, button:focus, button:hover { background-color: #45ADA8; color: #fff; border-color: #45ADA8; }
+button:hover { background-color: #32c0b9; }
+button.button-outline, button.button-outline:focus { color: #45ADA8; border-color: #45ADA8; }
+button.button-outline:hover { color: #32c0b9; border-color: #32c0b9; }
 
 .access-token form input { border-top-right-radius: 0; border-bottom-right-radius: 0 }
 .access-token form button { border-top-left-radius: 0; border-bottom-left-radius: 0 }

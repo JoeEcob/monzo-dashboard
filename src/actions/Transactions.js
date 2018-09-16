@@ -41,7 +41,12 @@ export const fetchTransactionsIfNeeded = accountId => (dispatch, getState) => {
   const transactions = state.transactionsByAccountId[accountId];
   const maxTimeDifference = 21600000; // 6 hours in ms
 
-  if (!transactions || transactions.lastUpdated < (Date.now() - maxTimeDifference)) {
+  if (typeof(transactions) !== 'undefined' && transactions.isFetching)
+    return;
+
+  if (!transactions
+      || transactions.items.length === 0
+      || transactions.lastUpdated < (Date.now() - maxTimeDifference)) {
     return dispatch(fetchTransactions(state.accessToken, accountId));
   }
 };
