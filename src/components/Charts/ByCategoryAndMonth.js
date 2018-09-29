@@ -30,7 +30,7 @@ const BuildCategoryDateTree = (transactionsByCategoryAndDate) => {
 
     // Sum all the transactions in this group, and convert from pence to pounds.
     totals[category][monthAndYear] = _.reduce(
-      _.reject(group, (r) => (!r.include_in_spending)),
+      _.reject(group, (r) => (!r.include_in_spending || r.amount >= 0 || r.is_load)),
       (memo, t) => (memo + ToPositivePounds(t.amount)), 0);
   });
 
