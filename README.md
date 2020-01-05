@@ -2,8 +2,6 @@
 
 # Spendy
 
-[![Build status](https://ci.appveyor.com/api/projects/status/0qhy1gp5lymw84h0?svg=true)](https://ci.appveyor.com/project/JoeEcob/spendy-aq7fx)
-
 Web app for visualising your [Monzo](https://monzo.com/) account.
 
 Built with React, Redux and ES6 Javascript the idea was to create an initial prototype for a dashboard to display / analyse [Monzo](https://monzo.com) transactions.
