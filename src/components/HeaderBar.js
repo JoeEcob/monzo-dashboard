@@ -7,7 +7,7 @@ const HeaderBar = ({ hasAccessToken, logoutOnClick }) => (
   <header className="header">
     <div className="container">
       <NavLink to="/" title="Home">
-        <h1>Spendy</h1>
+        <h1>Monzo Dashboard</h1>
       </NavLink>
       <Logout hasAccessToken={hasAccessToken} onClick={logoutOnClick} />
       <nav>

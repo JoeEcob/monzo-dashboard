@@ -1,6 +1,6 @@
 ![Homepage](Screenshots/homepage.png)
 
-# Spendy
+# Monzo Dashboard
 
 Web app for visualising your [Monzo](https://monzo.com/) account.
 

@@ -1,6 +1,6 @@
 {
-  "short_name": "Spendy",
-  "name": "Spendy - Monzo dashboard",
+  "short_name": "MonzoDashboard",
+  "name": "Monzo dashboard",
   "icons": [
     {
       "src": "favicon.png",
